@@ -25,19 +25,26 @@ kubectl apply -f wordpress-service.yaml
 ## Vérification
 kubectl get pods
 
-[CAPTURE 1 ICI : kubectl get pods avec les 2 pods en Running]
+<img width="1200" height="127" alt="MyScreen7_13_2026_12_51_32_PM" src="https://github.com/user-attachments/assets/4c4b20cc-4220-439b-9707-24262862dd11" />
+
 kubectl get svc
 
-[CAPTURE 2 ICI : kubectl get svc avec le service wordpress en NodePort]
+<img width="1200" height="154" alt="MyScreen7_13_2026_12_52_59_PM" src="https://github.com/user-attachments/assets/ddd583b7-2b54-4c08-aea5-e73a8690ba33" />
+
 
 ## Test d'accès
-curl -v http://<IP_du_pod>
+curl -v http://10.244.0.5
 
 Le serveur répond avec un code HTTP 302 et redirige vers /wp-admin/install.php,
 ce qui confirme que WordPress est bien déployé et fonctionnel, et détecte
 qu'aucune installation n'a encore été effectuée.
 
-[CAPTURE 3 ICI : résultat du curl -v avec la redirection 302]
+<img width="1200" height="314" alt="MyScreen7_13_2026_12_55_22_PM" src="https://github.com/user-attachments/assets/4e319c22-1d61-4016-921d-722af67aec2e" />
+<img width="1200" height="324" alt="MyScreen7_13_2026_12_56_29_PM" src="https://github.com/user-attachments/assets/d923dae7-85ed-424e-a34d-a3e8fffca52c" />
+<img width="1200" height="598" alt="MyScreen7_13_2026_1_02_32_PM" src="https://github.com/user-attachments/assets/41357b0b-24ce-4c99-81e4-7c3ff34927ef" />
+
+
+
 
 ## Choix techniques
 - Le service MySQL est nommé wordpress-mysql pour correspondre à la variable
